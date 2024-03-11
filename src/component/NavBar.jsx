@@ -6,6 +6,8 @@ function NavBar() {
   const {date,setTodos,todos} = useContext(NavContext)
   const [taskHeading,setTaskHeading]=useState('')
   const [details,setDetails]=useState('')
+  const now = new Date();
+  now.setHours(0,0,0,0)
   const dateString = date.toDateString()
   const formData ={
     taskHeading,
@@ -16,10 +18,23 @@ function NavBar() {
   const handleClick =(e)=>{
     e.preventDefault()
     console.log(formData);
-    console.log(date.toDateString());
-    setTodos([...todos,formData])
-    // localStorage.setItem('todos',JSON.stringify(todos))
-    console.log(localStorage.getItem('todos'));
+    console.log(date);
+
+    const now = new Date()
+    console.log(now);
+    // if(now > date){
+    //   disabled=true
+    // }
+    // let oldItems = JSON.parse(localStorage.getItem('todos'))
+    // oldItems = [...oldItems,formData]
+    // // console.log(oldItems.length);
+    // // setTodos([...oldItems,formData])
+    // localStorage.setItem('todos',JSON.stringify(oldItems))
+
+    // setDetails('')
+    // setTaskHeading('')
+    // setTodos(oldItems.filter((item)=> item.dateString === date.toDateString()))
+    // document.getElementById('my_modal_3').close()    // console.log(localStorage.getItem('todos'));
     // localStorage.clear()
     // console.log(e);
   }
@@ -46,7 +61,7 @@ function NavBar() {
               </div>
         
               <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-              <button className="btn border-none btn-md bg-[#3F5BF6] my-3" onClick={(e)=>handleClick(e)}>
+              <button className={`btn border-none btn-md bg-[#3F5BF6] my-3 ${now>date?'btn-disabled':''}`} onClick={(e)=>handleClick(e)}>
                 Submit
               </button>
             </form>
