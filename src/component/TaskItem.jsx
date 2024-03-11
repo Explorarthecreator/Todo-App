@@ -1,7 +1,21 @@
 
-function TaskItem() {
+function TaskItem({todo}) {
   return (
-    <div>TaskItem</div>
+    <div>
+      <p>
+        {
+          todo.details
+        }
+      </p>
+      <p>
+        {
+          todo.dateString
+        }
+      </p>
+      <p>
+        We are here
+      </p>
+    </div>
   )
 }
 
