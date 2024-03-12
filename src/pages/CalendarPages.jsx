@@ -1,6 +1,6 @@
 import { useContext} from "react"
 import Calendar from "react-calendar"
-import 'react-calendar/dist/Calendar.css';
+// import 'react-calendar/dist/Calendar.css';
 import NavContext from "../context/NavContext";
 
 
