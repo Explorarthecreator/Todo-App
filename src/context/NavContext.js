@@ -7,9 +7,12 @@ export const NavbarProvider = ({children})=>{
     const [date, setDate] = useState(new Date())
     const [todos, setTodos] = useState([])
 
+    // eslint-disable-next-line
     useEffect(()=>{
         const retrieveItem = JSON.parse(localStorage.getItem('todos'))
-        setTodos(retrieveItem.filter((item)=> item.dateString === date.toDateString()))
+        if(retrieveItem){
+            setTodos(retrieveItem.filter((item)=> item.dateString === date.toDateString()))
+        }
     },[])
     return <NavContext.Provider value={{
         shownav,

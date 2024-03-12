@@ -12,8 +12,10 @@ function CalendarPages() {
 
     // Retrieves the todo from the local strorage, filters it and use it to set the todos to todos of that particular day
     const retrieveTodo = JSON.parse(localStorage.getItem('todos'))
-    console.log(retrieveTodo.filter((todo)=> todo.dateString === currentDay.toDateString()));
-    setTodos(retrieveTodo.filter((todo)=> todo.dateString === currentDay.toDateString()))
+    // console.log(retrieveTodo.filter((todo)=> todo.dateString === currentDay.toDateString()));
+    if(retrieveTodo){
+      setTodos(retrieveTodo.filter((todo)=> todo.dateString === currentDay.toDateString()))
+    }
   }
   return (
     <div className={`${shownav?'hidden':'block'}`}>
@@ -21,11 +23,11 @@ function CalendarPages() {
 
 
       {/* This is a testing feature and will be removed later */}
-        <p className=" text-3xl">
+        {/* <p className=" text-3xl">
           {
             date.toDateString()
           }
-        </p>
+        </p> */}
     </div>
   )
 }
