@@ -19,7 +19,7 @@ function CalendarPages() {
     }
   }
   return (
-    <div className={`${shownav?'hidden':'block'} mb-3`}>
+    <div className={`${shownav?'hidden':'block'} mb-5`}>
         <Calendar value={date} onChange={(currentDay)=>onChange(currentDay)} className=''/>
 
 
