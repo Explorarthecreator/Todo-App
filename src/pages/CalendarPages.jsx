@@ -1,34 +1,26 @@
-import { useContext, useState } from "react"
+import { useContext} from "react"
 import Calendar from "react-calendar"
 import 'react-calendar/dist/Calendar.css';
 import NavContext from "../context/NavContext";
 
 function CalendarPages() {
-  // const [date, setDate] = useState(new Date())
   const {shownav, date, setDate, setTodos}= useContext(NavContext)
 
-  const onCh = (value)=>{
-    setDate(value)
+  const onChange = (currentDay)=>{
+    // Sets the date to the current day clicked by the user
+    setDate(currentDay)
 
-
-    
-    const retrieveItem = JSON.parse(localStorage.getItem('todos'))
-
-    
-    console.log(retrieveItem.filter((item)=> item.dateString === value.toDateString()));
-    // setTimeout(() => {
-
-      setTodos(retrieveItem.filter((item)=> item.dateString === value.toDateString()))
-    // }, 1000);
-    // console.log(date.toDateString());
+    // Retrieves the todo from the local strorage, filters it and use it to set the todos to todos of that particular day
+    const retrieveTodo = JSON.parse(localStorage.getItem('todos'))
+    console.log(retrieveTodo.filter((todo)=> todo.dateString === currentDay.toDateString()));
+    setTodos(retrieveTodo.filter((todo)=> todo.dateString === currentDay.toDateString()))
   }
   return (
     <div className={`${shownav?'hidden':'block'}`}>
-      {/* <button onClick={()=>{setShownav(!shownav)}} className="">
-        Click me
-      </button> */}
-        <Calendar value={date} onChange={(value)=>onCh(value)} className=''/>
+        <Calendar value={date} onChange={(currentDay)=>onChange(currentDay)} className=''/>
 
+
+      {/* This is a testing feature and will be removed later */}
         <p className=" text-3xl">
           {
             date.toDateString()
