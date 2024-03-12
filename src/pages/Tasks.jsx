@@ -3,12 +3,9 @@ import NavContext from "../context/NavContext"
 import TaskItem from "../component/TaskItem"
 
 function Tasks() {
-  const {todos,date, setTodos} = useContext(NavContext)
+  const {todos,date} = useContext(NavContext)
   
-  useEffect(()=>{
-    const retrieveItem = JSON.parse(localStorage.getItem('todos'))
-    setTodos(retrieveItem.filter((item)=> item.dateString === date.toDateString()))
-  },[])
+  
   if(todos.length < 1){
     return <p>
       No Tasks for Today
