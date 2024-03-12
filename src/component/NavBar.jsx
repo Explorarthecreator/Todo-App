@@ -61,7 +61,7 @@ function NavBar() {
               </div>
         
               <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-              <button className={`btn border-none btn-md bg-[#3F5BF6] my-3 ${now>date?'btn-disabled':''}`} onClick={(e)=>handleClick(e)}>
+              <button className={`btn border-none btn-md text-white bg-[#3F5BF6] my-3 ${now>date?'btn-disabled':''}`} onClick={(e)=>handleClick(e)}>
                 Submit
               </button>
             </form>

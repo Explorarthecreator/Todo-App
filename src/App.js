@@ -12,9 +12,9 @@ function App() {
         {/* <B/> */}
         <main className=' lg:w-4/5 lg:m-auto lg:my-6'>
           <Greeting/>
-          <div className=' lg:flex lg:justify-between lg:mt-10'>
-            <Tasks/>
+          <div className=' lg:flex lg:flex-row-reverse lg:justify-between lg:mt-10'>
             <CalendarPages/>
+            <Tasks/>
           </div>
         </main>
       </div>
