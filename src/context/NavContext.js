@@ -3,7 +3,7 @@ import { createContext, useState, useEffect } from "react";
 const NavContext = createContext()
 
 export const NavbarProvider = ({children})=>{
-    const [shownav, setShownav] = useState(true)
+    const [shownav, setShownav] = useState(false)
     const [date, setDate] = useState(new Date())
     const [todos, setTodos] = useState([])
 
