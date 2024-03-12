@@ -1,9 +1,10 @@
 import B from "../pages/B"
 import NavContext from "../context/NavContext";
 import { useContext, useState } from "react";
+import {toast} from 'react-toastify'
 
 function NavBar() {
-  const {date,setTodos,todos} = useContext(NavContext)
+  const {date,setTodos} = useContext(NavContext)
   const [taskHeading,setTaskHeading]=useState('')
   const [details,setDetails]=useState('')
   const now = new Date();
@@ -17,26 +18,23 @@ function NavBar() {
   
   const handleClick =(e)=>{
     e.preventDefault()
-    console.log(formData);
-    console.log(date);
 
-    const now = new Date()
-    console.log(now);
-    // if(now > date){
-    //   disabled=true
-    // }
-    // let oldItems = JSON.parse(localStorage.getItem('todos'))
-    // oldItems = [...oldItems,formData]
-    // // console.log(oldItems.length);
-    // // setTodos([...oldItems,formData])
-    // localStorage.setItem('todos',JSON.stringify(oldItems))
+    // const now = new Date()
+    let oldItems = JSON.parse(localStorage.getItem('todos'))
 
-    // setDetails('')
-    // setTaskHeading('')
-    // setTodos(oldItems.filter((item)=> item.dateString === date.toDateString()))
-    // document.getElementById('my_modal_3').close()    // console.log(localStorage.getItem('todos'));
-    // localStorage.clear()
-    // console.log(e);
+    if(oldItems === null){
+      oldItems = [formData]
+    }else{
+      oldItems = [...oldItems,formData]
+    }
+    setTodos(oldItems)
+    localStorage.setItem('todos',JSON.stringify(oldItems))
+
+    toast.success('Task created successfully!!')
+    setDetails('')
+    setTaskHeading('')
+    
+    document.getElementById('my_modal_3').close()    // console.log(localStorage.getItem('todos'));
   }
   return (
     <div className=" border-b-2 shadow-md flex justify-between items-center px-2 py-4 lg:px-6 lg:w-4/5 lg:m-auto rounded-xl">
