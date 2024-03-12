@@ -39,7 +39,7 @@ function NavBar() {
     // console.log(e);
   }
   return (
-    <div>
+    <div className=" border-b-2 shadow-md flex justify-between items-center px-2 py-4 lg:px-6 lg:w-4/5 lg:m-auto rounded-xl">
       <dialog id="my_modal_3" className="modal ">
           <div className="modal-box bg-white text-black"> 
             <h3 className="text-2xl font-semibold lg:text-4xl mb-2">
@@ -67,18 +67,13 @@ function NavBar() {
             </form>
           </div>
       </dialog>
+      <h1 className="hidden lg:block text-4xl font-semibold">
+        Todo App
+      </h1>
         <B/>
-        <button onClick={()=>document.getElementById('my_modal_3').showModal()}>
-          Create new Task
+        <button onClick={()=>document.getElementById('my_modal_3').showModal()} className="btn btn-md bg-[#475467] text-white">
+          Add Todo
         </button>
-        <p>
-          {
-            date.toDateString()
-          }
-        </p>
-        <p>
-          {details}
-        </p>
     </div>
   )
 }
