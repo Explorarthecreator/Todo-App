@@ -3,6 +3,7 @@ import Calendar from "react-calendar"
 import 'react-calendar/dist/Calendar.css';
 import NavContext from "../context/NavContext";
 
+
 function CalendarPages() {
   const {shownav, date, setDate, setTodos}= useContext(NavContext)
 
@@ -18,7 +19,7 @@ function CalendarPages() {
     }
   }
   return (
-    <div className={`${shownav?'hidden':'block'}`}>
+    <div className={`${shownav?'hidden':'block'} mb-3`}>
         <Calendar value={date} onChange={(currentDay)=>onChange(currentDay)} className=''/>
 
 
