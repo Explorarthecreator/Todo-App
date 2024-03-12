@@ -7,7 +7,7 @@ function B() {
   return (
     <div className="block lg:hidden">
         <button onClick={()=>{setShownav(!shownav)}}>
-          <FaCalendarAlt size={35}/>
+          <FaCalendarAlt size={35} color="#475467"/>
         </button>
     </div>
   )
