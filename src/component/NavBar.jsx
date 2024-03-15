@@ -27,9 +27,11 @@ function NavBar() {
     }else{
       oldItems = [...oldItems,formData]
     }
-    setTodos(oldItems)
+    console.log(oldItems);
     localStorage.setItem('todos',JSON.stringify(oldItems))
 
+    setTodos(oldItems.filter((todo)=>todo.dateString === date.toDateString()))
+    // console.log(oldItems.filter((todo)=>todo.dateString === date.toDateString()))
     toast.success('Task created successfully!!')
     setDetails('')
     setTaskHeading('')
