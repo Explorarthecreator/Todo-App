@@ -20,7 +20,7 @@ function Tasks() {
     
   }
 
-  const now = new Date()
+  // const now = new Date()
   const deleteTodo = (todo)=>{
     const newTodos = []
 
@@ -50,7 +50,7 @@ function Tasks() {
       }
     })
 
-    setTodos(retrieveItem)
+    setTodos(retrieveItem.filter((todo)=>todo.dateString === date.toDateString()))
     localStorage.setItem('todos',JSON.stringify(retrieveItem))
 
     document.getElementById('edit-modal').close()
