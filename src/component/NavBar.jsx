@@ -59,6 +59,11 @@ function NavBar() {
               <div>
                 <input type="text" className=" input input-md w-full input-disabled input-success mb-2 bg-transparent text-black font-semibold" value={date.toDateString()} readOnly={true}/>
               </div>
+              {
+                now>date && <p className=" text-error text-xs">
+                  You can not add todo on a day that's in the past
+                </p>
+              }
         
               <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
               <button className={`btn border-none btn-md text-white bg-[#3F5BF6] my-3 ${now>date?'btn-disabled':''}`} onClick={(e)=>handleClick(e)}>
