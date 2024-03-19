@@ -19,6 +19,10 @@ function NavBar() {
   const handleClick =(e)=>{
     e.preventDefault()
 
+    if(taskHeading.trim() === ''){
+      toast.error('Task Heading cannot be empty')
+      return
+    }
     // const now = new Date()
     let oldItems = JSON.parse(localStorage.getItem('todos'))
 
@@ -49,7 +53,7 @@ function NavBar() {
               {/* if there is a button in form, it will close the modal */}
   
               <div className=" lg:mb-5 mb-3">
-                <input type="text" className=" input input-md w-full input-bordered input-success mb-2 bg-transparent" placeholder="Enter Task title" id="taskHeading" value={taskHeading} onChange={(e)=> setTaskHeading(e.target.value)} />
+                <input type="text" className=" input input-md w-full input-bordered input-success mb-2 bg-transparent" placeholder="Enter Task title" id="taskHeading" value={taskHeading} onChange={(e)=> setTaskHeading(e.target.value)}/>
               </div>
 
               <div className=" lg:mb-5 mb-3">
