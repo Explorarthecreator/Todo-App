@@ -1,7 +1,7 @@
 import { FaPen, FaTrash } from "react-icons/fa"
 function TaskItem({todo,onEdit,deleteTodo}) {
   return (
-    <div className=" bg-[#EAECF0] w-full m-auto mt-8 mb-2 rounded-md p-4 shadow-lg flex justify-between items-center">
+    <div className=" bg-[#EAECF0] w-full m-auto mb-4 mt-6 rounded-md p-4 shadow-lg flex justify-between items-center">
       <div className=" w-4/5">
         <p className="text-base lg:text-lg text-[#101828] font-medium mb-1 w-11/12 lg:w-full">
           {
