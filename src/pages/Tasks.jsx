@@ -38,10 +38,15 @@ function Tasks() {
 
 
     getTodos.map((too)=>{
-      if(todo.details !== too.details){
-        newTodos.push(too)
+      // console.log(todo);
+      // console.log(too);
+      if(todo.details !== too.details || todo.taskHeading !== too.taskHeading || todo.dateString !== too.dateString){
+        // if(todo.dateString !== too.dateString){
+          newTodos.push(too)
+        // }
       }
     })
+    // console.log(newTodos);
 
     setTodos(newTodos.filter(todo=> todo.dateString === date.toDateString()))
     localStorage.setItem('todos',JSON.stringify(newTodos))
@@ -54,7 +59,7 @@ function Tasks() {
 
     retrieveItem.map((item)=>{
 
-      if(item.details === editedodo.details && item.taskHeading === editedodo.taskHeading){
+      if(item.details === editedodo.details && item.taskHeading === editedodo.taskHeading && item.dateString === editedodo.dateString){
         item.details = details
         item.taskHeading = taskHeading
       }
