@@ -36,32 +36,33 @@ function Tasks() {
 
 
   }
-  // const now = new Date()
   const deleteTodo = (todo)=>{
     if(now.toDateString() > todo.dateString){
       toast.error('Cannot delete, date in the past')
       return
     }
-    const newTodos = []
+    
+    const confirmDelete = window.confirm('Are your sure you want to delete?')
 
-    const getTodos = JSON.parse(localStorage.getItem('todos'))
+    if(confirmDelete){
+      const newTodos = []
+
+      const getTodos = JSON.parse(localStorage.getItem('todos'))
 
 
-    getTodos.map((too)=>{
-      // console.log(todo);
-      // console.log(too);
-      if(todo.details !== too.details || todo.taskHeading !== too.taskHeading || todo.dateString !== too.dateString){
-        // if(todo.dateString !== too.dateString){
+      getTodos.map((too)=>{
+        if(todo.details !== too.details || todo.taskHeading !== too.taskHeading || todo.dateString !== too.dateString){
           newTodos.push(too)
-        // }
-      }
-    })
-    // console.log(newTodos);
+        }
+      })
 
-    setTodos(newTodos.filter(todo=> todo.dateString === date.toDateString()))
-    localStorage.setItem('todos',JSON.stringify(newTodos))
+      setTodos(newTodos.filter(todo=> todo.dateString === date.toDateString()))
+      localStorage.setItem('todos',JSON.stringify(newTodos))
 
-    toast.success('Task deleted successfully!')
+      toast.success('Task deleted successfully!')
+    }else{
+      toast.info('Delete cancelled')
+    }
   }
   const handleClick=(e)=>{
     e.preventDefault()
