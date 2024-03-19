@@ -9,6 +9,7 @@ function Tasks() {
   const [editedodo,setEditTodo] = useState({})
   const [taskHeading, setTaskHeading]= useState('')
   const [details, setDetails] = useState('')
+  const [dateString, setdateString] = useState('')
   const editTodo = (todo)=>{
     setEditTodo(todo)
 
@@ -20,6 +21,15 @@ function Tasks() {
     
   }
 
+  const displayTodo = (todo)=>{
+
+    setDetails(todo.details)
+    setTaskHeading(todo.taskHeading)
+    setdateString(todo.dateString)
+    document.getElementById('display-modal').showModal()
+
+
+  }
   // const now = new Date()
   const deleteTodo = (todo)=>{
     const newTodos = []
@@ -69,7 +79,7 @@ function Tasks() {
         {
           todos.length >= 1? 
           todos.map((todo,index)=>(
-            <TaskItem todo={todo} key={index} onEdit={editTodo} deleteTodo={deleteTodo}/>
+            <TaskItem todo={todo} key={index} onEdit={editTodo} deleteTodo={deleteTodo} displayTodo={displayTodo}/>
           )) :
           <EmptyTodo/>
         }
@@ -99,7 +109,37 @@ function Tasks() {
               </button>
             </form>
           </div>
-      </dialog>
+        </dialog>
+
+        <dialog id="display-modal" className="modal ">
+          <div className="modal-box bg-white text-black"> 
+            <h3 className="text-xl font-semibold lg:text-2xl mb-2">
+              {
+                taskHeading
+              }
+            </h3>
+            <form method="dialog">
+              {/* if there is a button in form, it will close the modal */}
+  
+              <p className=" w-11/12 lg:w-full text-justify mb-3">
+                {
+                  details
+                }
+              </p>
+
+              <p className="text-xs">
+                {
+                  dateString
+                }
+              </p>
+
+              {/* <div>
+                <input type="text" className=" input input-md w-full input-disabled input-success mb-2 bg-transparent text-black font-semibold" value={date.toDateString()} readOnly={true}/>
+              </div> */}
+              <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+            </form>
+          </div>
+        </dialog>
     </div>
   )
 }
