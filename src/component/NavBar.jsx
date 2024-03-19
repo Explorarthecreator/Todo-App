@@ -42,21 +42,21 @@ function NavBar() {
     <div className=" border-b-2 shadow-md flex justify-between items-center px-2 py-4 lg:px-6 lg:w-4/5 lg:m-auto rounded-xl">
       <dialog id="my_modal_3" className="modal ">
           <div className="modal-box bg-white text-black"> 
-            <h3 className="text-2xl font-semibold lg:text-4xl mb-2">
+            <h3 className="text-2xl font-normal lg:text-4xl mb-6">
               Create a Task
             </h3>
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
   
-              <div>
+              <div className=" lg:mb-5 mb-3">
                 <input type="text" className=" input input-md w-full input-bordered input-success mb-2 bg-transparent" placeholder="Enter Task title" id="taskHeading" value={taskHeading} onChange={(e)=> setTaskHeading(e.target.value)} />
               </div>
 
-              <div>
+              <div className=" lg:mb-5 mb-3">
                 <input type="text" className=" input input-md w-full input-bordered input-success mb-2 bg-transparent " placeholder="Enter Task details" id="details" value={details} onChange={(e)=>setDetails(e.target.value)} />
               </div>
 
-              <div>
+              <div className=" lg:mb-5 mb-3">
                 <input type="text" className=" input input-md w-full input-disabled input-success mb-2 bg-transparent text-black font-semibold" value={date.toDateString()} readOnly={true}/>
               </div>
               {
