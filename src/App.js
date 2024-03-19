@@ -14,7 +14,7 @@ function App() {
         {/* <B/> */}
         <main className=' lg:w-4/5 lg:m-auto lg:my-6'>
           <Greeting/>
-          <div className=' lg:flex lg:flex-row-reverse lg:justify-between lg:mt-10 mb-5'>
+          <div className=' lg:flex lg:flex-row-reverse lg:justify-between mt-5 lg:mt-10 mb-5'>
             <CalendarPages/>
             <Tasks/>
           </div>
