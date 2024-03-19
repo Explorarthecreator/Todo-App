@@ -80,7 +80,7 @@ function NavBar() {
         Todo App
       </h1>
         <B/>
-        <button onClick={()=>document.getElementById('my_modal_3').showModal()} className="btn btn-md bg-[#475467] text-white">
+        <button onClick={()=>document.getElementById('my_modal_3').showModal()} className={`btn btn-md bg-[#475467] text-white ${now>date && 'btn-disabled'}`}>
           Add Todo
         </button>
     </div>

@@ -10,7 +10,13 @@ function Tasks() {
   const [taskHeading, setTaskHeading]= useState('')
   const [details, setDetails] = useState('')
   const [dateString, setdateString] = useState('')
+  const now = new Date()
   const editTodo = (todo)=>{
+
+    if(now.toDateString() > todo.dateString){
+      toast.error('Cannot edit, date in the past')
+      return
+    }
     setEditTodo(todo)
 
     document.getElementById('edit-modal').showModal()
@@ -32,6 +38,10 @@ function Tasks() {
   }
   // const now = new Date()
   const deleteTodo = (todo)=>{
+    if(now.toDateString() > todo.dateString){
+      toast.error('Cannot delete, date in the past')
+      return
+    }
     const newTodos = []
 
     const getTodos = JSON.parse(localStorage.getItem('todos'))
