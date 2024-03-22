@@ -13,7 +13,15 @@ function Tasks() {
   const now = new Date()
   const editTodo = (todo)=>{
 
-    if(now.toDateString() > todo.dateString){
+    // let now = new Date();
+    let todoDate = new Date(todo.dateString);
+
+    // Set the time part to 00:00:00
+    now.setHours(0, 0, 0, 0);
+    todoDate.setHours(0, 0, 0, 0);
+    // console.log(now.toDateString());
+    // console.log(todo.dateString);
+    if(now > todoDate){
       toast.error('Cannot edit, date in the past')
       return
     }
@@ -37,7 +45,12 @@ function Tasks() {
 
   }
   const deleteTodo = (todo)=>{
-    if(now.toDateString() > todo.dateString){
+    let todoDate = new Date(todo.dateString);
+
+    // Set the time part to 00:00:00
+    now.setHours(0, 0, 0, 0);
+    todoDate.setHours(0, 0, 0, 0);
+    if(now > todoDate){
       toast.error('Cannot delete, date in the past')
       return
     }

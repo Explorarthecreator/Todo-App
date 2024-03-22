@@ -25,9 +25,6 @@ function TaskItem({todo,onEdit,deleteTodo,displayTodo}) {
           {
             todo.details.length > 60 && <button className="link link-hover ml-4 mr-4" onClick={()=>displayTodo(todo)}> View more</button>
           }
-          {
-            todo.details.length
-          }
         </p>
 
         <p className=" text-xs text-[#475467] hidden lg:block">
